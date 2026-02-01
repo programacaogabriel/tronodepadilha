@@ -1,0 +1,278 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at right, #2b0d0d, #000);
+  color: #ffffff;
+  min-height: 100vh;
+  padding-top: 90px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  padding: 0 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 1000;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(14px);
+}
+
+/* ================= NAV ================= */
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav a {
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #b5b5b5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #ffffff;
+}
+
+/* ================= BUTTON HEADER ================= */
+.btn-red {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 30px;
+
+  background: linear-gradient(135deg, #8b0000, #ff1e1e);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: all 0.4s ease;
+}
+
+.btn-red:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  padding: 80px 60px 60px;
+  gap: 60px;
+  z-index: 1;
+}
+
+/* ================= HERO LEFT ================= */
+.hero-left {
+  max-width: 640px;
+}
+
+.hero-left h1 {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  margin-bottom: 32px;
+}
+
+.hero-left h1 span {
+  color: #e53935;
+}
+
+.hero-left p {
+  font-size: 17px;
+  color: #c5c5c5;
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+/* ================= ACTIONS ================= */
+.actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: #e53935;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 16px 30px;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* ================= HERO RIGHT (DESKTOP) ================= */
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.ritual-card {
+  width: 100%;
+  height: 620px;
+  border-radius: 32px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px);
+  padding: 28px;
+}
+
+.ritual-image-wrapper {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.ritual-image {
+  width: 80%;
+  max-width: 320px;
+  border-radius: 18px;
+  transform: rotate(-8deg) scale(0.95);
+  transition: all 0.6s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  filter: grayscale(100%);
+}
+
+/* 🔥 HOVER SÓ DESKTOP REAL */
+@media (hover: hover) and (pointer: fine) {
+  .ritual-image:hover {
+    transform: rotate(0deg) scale(1.02);
+    filter: grayscale(0%) drop-shadow(0 0 28px rgba(229,57,53,0.9));
+  }
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #25d366;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 26px;
+}
+
+/* ================================================= */
+/* ================= TABLET ======================== */
+/* ================================================= */
+@media (max-width: 1024px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 70px 40px;
+    min-height: 100vh;
+  }
+
+  .hero-right {
+    display: none;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    background: url("bode.png") center / cover no-repeat;
+    opacity: 0.12;
+    filter: blur(2px);
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+/* ================================================= */
+/* ================= MOBILE ======================== */
+/* ================================================= */
+@media (max-width: 768px) {
+
+  .header {
+    padding: 0 24px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 60px 24px;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .hero-left h1 {
+    font-size: 44px;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+    margin-bottom: 36px;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    background: url("bode.png") center / cover no-repeat;
+    opacity: 0.18;
+    filter: blur(3px);
+    z-index: -1;
+    pointer-events: none;
+  }
+}
